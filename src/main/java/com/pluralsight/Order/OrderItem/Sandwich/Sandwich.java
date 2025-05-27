@@ -52,4 +52,14 @@ public class Sandwich {
 
     Sandwich sandwich = new Sandwich(sandwichSize,breadType,toasted,sandwichPrice);
 
+    private void sandwichSize(){
+
+        if (sandwichSize.equalsIgnoreCase("4")){
+            sandwichPrice = 5.50;
+        } else if (sandwichSize.equalsIgnoreCase("8")) {
+            sandwichPrice = 7.00;
+        } else if (sandwichSize.equalsIgnoreCase("12")) {
+            sandwichPrice = 8.50;
+        }
+    }
 }
