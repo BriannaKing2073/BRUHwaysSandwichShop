@@ -9,7 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        HomeScreen();
+        UserInterface ui = new UserInterface();
+        ui.Start();
+
+//        HomeScreen();
 
     }
 

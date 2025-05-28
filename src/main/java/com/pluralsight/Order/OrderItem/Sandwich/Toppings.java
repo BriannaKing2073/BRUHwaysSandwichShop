@@ -12,7 +12,6 @@ public class Toppings {
     private String extraCheese;
     private String regularTopping;
     private String sauce;
-    private String side; //need to move to its own class
     private double toppingPrice;
 
     public static void Meat(){
