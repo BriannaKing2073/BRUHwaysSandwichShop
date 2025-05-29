@@ -1,15 +1,15 @@
 package com.pluralsight.Order.OrderItem;
 
-public class SideSauce {
+public class SideSauce implements OrderItem{
 
     private String sauceName;
-    private boolean isSide;
+   // private boolean isSide;
 
     //Constructor
 
-    public SideSauce(String sauceName, boolean isSide) {
+    public SideSauce(String sauceName) {
         this.sauceName = sauceName;
-        this.isSide = isSide;
+       // this.isSide = isSide;
     }
 
     //Getters and Setters
@@ -21,12 +21,27 @@ public class SideSauce {
     public void setSauceName(String sauceName) {
         this.sauceName = sauceName;
     }
-    //Is Side?
-    public boolean isSide() {
-        return isSide;
+//    //Is Side?
+//    public boolean isSide() {
+//        return isSide;
+//    }
+//
+//    public void setSide(boolean side) {
+//        isSide = side;
+//    }
+
+    @Override
+    public String itemType() {
+        return "Side Sauce";
     }
 
-    public void setSide(boolean side) {
-        isSide = side;
+    @Override
+    public String itemDescirption() {
+        return "Side Sauce (" + this.sauceName + ")";
+    }
+
+    @Override
+    public double itemTotalCost() {
+        return 0;
     }
 }
