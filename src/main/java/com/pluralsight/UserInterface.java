@@ -3,6 +3,8 @@ package com.pluralsight;
 import com.pluralsight.Order.Order;
 import com.pluralsight.Order.OrderItem.Chips;
 import com.pluralsight.Order.OrderItem.Drink;
+import com.pluralsight.Order.OrderItem.Sandwich.Sandwich;
+import com.pluralsight.Order.OrderItem.SideSauce;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +26,8 @@ public class UserInterface {
 
         String HomeScreen = "Welcome to BRUHways were we do it the BRUH ways\n" +
                 "Please Enter an option BRUH:\n" +
-                "(1)New Order\n" +
-                "(0)Exit the BRUHway";
+                "(1)New Order 🍽️\n" +
+                "(0)Exit the BRUHway 🍽️➡️🏃🏾‍➡️";
 
         String option;
 
@@ -57,15 +59,21 @@ public class UserInterface {
 
         Scanner scanner = new Scanner(System.in);
 
-        //Collect Order Name
+//        //Collect Order Name
+//        System.out.println("What's your name,BRUH?");
+//
+//        String orderName = scanner.nextLine();
+//
+//        createdOrder.addOrderItem(orderName);
 
         String OrderScreen = "Let's order the BRUH way, BRUH \n" +
                 "Enter your option BRUH:\n" +
-                "(1)Add Sandwich\n" +
-                "(2)Add Drink\n" +
-                "(3)Add Chips\n" +
-                "(4)Check Out\n" +
-                "(0)Cancel Order";
+                "(1)Add Sandwich 🥪\n" +
+                "(2)Add Drink 🥤\n" +
+                "(3)Add Chips 🍿\n" +
+                "(4)Add Side Sauce 🥣\n" +
+                "(5)Check Out 🛎️\n" +
+                "(0)Cancel Order ❌";
 
         String option;
 
@@ -76,7 +84,9 @@ public class UserInterface {
 
             if (option.equalsIgnoreCase("1")) {
 
-                AddSandwich();
+                Sandwich sandwich = AddSandwich();
+
+                createdOrder.addOrderItem(sandwich);
 
             } else if (option.equalsIgnoreCase("2")) {
 
@@ -84,7 +94,7 @@ public class UserInterface {
 
                 createdOrder.addOrderItem(drink);
 
-                OrderScreen();
+               // OrderScreen();
 
             } else if (option.equalsIgnoreCase("3")) {
 
@@ -92,9 +102,14 @@ public class UserInterface {
 
                 createdOrder.addOrderItem(chips);
 
-                OrderScreen();
+                //OrderScreen();
 
             } else if (option.equalsIgnoreCase("4")) {
+
+                SideSauce sideSauce = AddSideSauce();
+                createdOrder.addOrderItem(sideSauce);
+
+            } else if (option.equalsIgnoreCase("5")) {
 
                 CheckOut();
 
@@ -111,12 +126,244 @@ public class UserInterface {
 
     }
 
-    private void AddSandwich() {
+    private Sandwich AddSandwich() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        String seletedSandwichSize = "";
+        String selectedBreadType = "";
+        String selectedToppings = "";
+        boolean selectedToasted = false;
 
         //Sandwich Size
+        System.out.println("Enter Your Sandwich Size BRUH:\n" +
+                "4,8,12\n" +
+                "[4] 4 inches ($2.00)\n" +
+                "[8] 8 inches ($2.50)\n" +
+                "[12] 12 inches ($3.00)\n");
+
+        String option;
+
+        do {
+
+            option = scanner.nextLine();
+
+            if (option.equalsIgnoreCase("4")) {
+
+                selectedSandwichSize = "4 inches";
+
+            } else if (option.equalsIgnoreCase("8")) {
+
+                selectedSandwichSize = "8 inches";
+
+            } else if (option.equalsIgnoreCase("12")) {
+
+                selectedSandwichSize = "12 inches";
+
+            } else {
+
+                System.out.println("Invalid Sandwich Size try again");
+
+            }
+        } while (selectedSandwichSize.equalsIgnoreCase(""));
+
         //Bread Type
+        boolean choosingBread = true;
+
+        while (choosingBread) {
+            System.out.println("Bread Type Options:\n" +
+                    "1) White \n" +
+                    "2) Wheat\n" +
+                    "3) Rye \n" +
+                    "4) Wrap \n" +
+
+                    "Select a Bread Type (1-4):\n");
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    selectedBreadType = "White";
+                    break;
+                case 2:
+                    selectedBreadType = "Wheat";
+                    break;
+                case 3:
+                    selectedBreadType = "Rye";
+                    break;
+                case 4:
+                    selectedBreadType = "Wrap";
+                    break;
+                case 5:
+                    choosingBread = false;
+                    break;
+                default:
+                    System.out.println("Invalid Choice Try Again.");
+            }
+
+        }
+
         //Toppings
+
+        //Meat
+
+            List<String>selectedMeatToppings = new ArrayList<>();
+
+            boolean choosingMeat = true;
+
+            while (choosingMeat){
+                System.out.println("Meat Topping Options:\n" +
+                        "1) Steak\n" +
+                        "2) Ham\n" +
+                        "3) Salami\n" +
+                        "4) Roast Beef\n" +
+                        "5) Chicken\n" +
+                        "6) Bacon\n" +
+                        "Select a Meat Topping (1-6):");
+                int choice = scanner.nextInt();
+
+                switch (choice){
+                    case 1: selectedMeatToppings.add("Steak");
+                        break;
+                    case 2: selectedMeatToppings.add("Ham");
+                        break;
+                    case 3: selectedMeatToppings.add("Salami");
+                        break;
+                    case 4: selectedMeatToppings.add("Roast Beef");
+                        break;
+                    case 5: selectedMeatToppings.add("Chicken");
+                        break;
+                    case 6: selectedMeatToppings.add("Bacon");
+                        break;
+                    case 7: choosingMeat = false;
+                        break;
+                    default:
+                        System.out.println("Invalid Choice Try Again.");
+                }
+                System.out.println();
+            }
+
+        //Cheese
+
+            List<String>selectedCheeseToppings = new ArrayList<>();
+
+            boolean choosingCheese = true;
+
+            while (choosingCheese){
+                System.out.println("Cheese Topping Options:\n" +
+                        "1) American\n" +
+                        "2) Provolone\n" +
+                        "3) Cheddar\n" +
+                        "4) Swiss\n" +
+                        "Select a Cheese Topping (1-4):");
+                int choice = scanner.nextInt();
+
+                switch (choice){
+                    case 1: selectedCheeseToppings.add("American");
+                        break;
+                    case 2: selectedCheeseToppings.add("Provolone");
+                        break;
+                    case 3: selectedCheeseToppings.add("Cheddar");
+                        break;
+                    case 4: selectedCheeseToppings.add("Swiss");
+                        break;
+                    case 5: choosingCheese = false;
+                        break;
+                    default:
+                        System.out.println("Invalid Choice Try Again.");
+                }
+                System.out.println();
+            }
+
+         //Regular Toppings
+
+            List<String>selectedRegularToppings = new ArrayList<>();
+
+            boolean choosingRegular = true;
+
+            while (choosingRegular){
+                System.out.println("Regular Topping Options:\n" +
+                        "1) Lettuce\n" +
+                        "2) Peppers\n" +
+                        "3) Onions\n" +
+                        "4) Tomatoes\n" +
+                        "5) Jalapenos\n" +
+                        "6) Cucumbers\n" +
+                        "7) Pickles\n" +
+                        "8) Guacamole\n" +
+                        "9) Mushrooms\n" +
+                        "Select a Regular Topping (1-9):");
+                int choice = scanner.nextInt();
+
+                switch (choice){
+                    case 1: selectedRegularToppings.add("Lettuce");
+                        break;
+                    case 2: selectedRegularToppings.add("Peppers");
+                        break;
+                    case 3: selectedRegularToppings.add("Onions");
+                        break;
+                    case 4: selectedRegularToppings.add("Tomatoes");
+                        break;
+                    case 5: selectedRegularToppings.add("Jalapenos");
+                        break;
+                    case 6: selectedRegularToppings.add("Cucumbers");
+                        break;
+                    case 7: selectedRegularToppings.add("Pickles");
+                        break;
+                    case 8: selectedRegularToppings.add("Guacamole");
+                        break;
+                    case 9: selectedRegularToppings.add("Mushrooms");
+                        break;
+                    case 10: choosingRegular = false;
+                        break;
+                    default:
+                        System.out.println("Invalid Choice Try Again.");
+                }
+            }
+
+         //Sauce
+
+            List<String>selectedSauceToppings = new ArrayList<>();
+
+            boolean choosingSauce = true;
+
+            while (choosingSauce){
+                System.out.println("Sauce Topping Options:\n" +
+                        "1) Mayo\n" +
+                        "2) Mustard\n" +
+                        "3) Ketchup\n" +
+                        "4) Ranch\n" +
+                        "5) Thousand Islands\n" +
+                        "6) Vinaigrette\n" +
+                        "Select a Sauce Topping (1-6):");
+                int choice = scanner.nextInt();
+
+                switch (choice){
+                    case 1: selectedSauceToppings.add("Mayo");
+                        break;
+                    case 2: selectedSauceToppings.add("Mustard");
+                        break;
+                    case 3: selectedSauceToppings.add("Ketchup");
+                        break;
+                    case 4: selectedSauceToppings.add("Ranch");
+                        break;
+                    case 5: selectedSauceToppings.add("Thousand Islands");
+                        break;
+                    case 6: selectedSauceToppings.add("Vinaigrette");
+                        break;
+                    case 7: choosingSauce = false;
+                        break;
+                    default:
+                        System.out.println("Invalid Choice Try Again.");
+                }
+            }
+
         //Toasted
+
+        Sandwich sandwich = new Sandwich(seletedSandwichSize, selectedBreadType, selectedToppings,selectedToasted);
+
+         System.out.println("Ight bet, adding sandwich!");//print out sandwich order
+        //OrderScreen();
+        return sandwich;
 
     }
 
@@ -137,7 +384,6 @@ public class UserInterface {
 
         do {
 
-            System.out.println();
             option = scanner.nextLine();
 
             if (option.equalsIgnoreCase("S")) {
@@ -154,10 +400,10 @@ public class UserInterface {
 
             } else {
 
-                System.out.println("Invaild Drink Size try again");
+                System.out.println("Invalid Drink Size try again");
 
             }
-        } while (!option.equalsIgnoreCase("C"));
+        } while (selectedDrinkSize.equalsIgnoreCase(""));
 
         //Drink Flavor
         boolean choosing = true;
@@ -174,7 +420,7 @@ public class UserInterface {
                     "8)  Lemonade\n" +
                     "9)  Fruit Punch\n" +
                     "10) Water\n" +
-                    "Select a Drink Flavor (1-10):");
+                    "Select a Drink Flavor (1-10):\n");
             int choice = scanner.nextInt();
 
             switch (choice) {
@@ -214,23 +460,25 @@ public class UserInterface {
                 default:
                     System.out.println("Invalid Choice Try Again.");
             }
+
         }
 
         Drink drink = new Drink(selectedDrinkFlavor, selectedDrinkSize);
 
         System.out.println("Ight bet, adding drink!");//print out drink order
-
+        //OrderScreen();
         return drink;
+
     }
 
     private Chips AddChips() {
         //ask the user the flavor
         Scanner scanner = new Scanner(System.in);
-        String selectedChipsFlavor = "";//changed from array list to string 😐😐😐
+        String selectedChipsFlavor = "";
 
-        boolean choosing = true;
+        boolean choosingChips = true;
 
-        while (choosing) {
+        while (choosingChips) {
             System.out.println("Chips Flavor Options:\n" +
                     "1) Plain\n" +
                     "2) Salt N Vinegar\n" +
@@ -261,18 +509,66 @@ public class UserInterface {
                     selectedChipsFlavor = "White Cheddar Popcorn";
                     break;
                 case 7:
-                    choosing = false;
+                    choosingChips = false;
                     break;
                 default:
                     System.out.println("Invalid Choice Try Again.");
             }
-            System.out.println();
+
         }
         //create the chips object
         Chips chips = new Chips(selectedChipsFlavor);
 
         System.out.println("Ight bet, adding chips!");
+        //OrderScreen();
         return chips;
+
+    }
+
+    private SideSauce AddSideSauce(){
+
+        Scanner scanner = new Scanner(System.in);
+        String selectedSideSauce = "";
+
+        boolean choosingSideSauce = true;
+
+        while (choosingSideSauce){
+            System.out.println("Side Sauce Options:\n" +
+                    "1) Mayo\n" +
+                    "2) Mustard\n" +
+                    "3) Ketchup\n" +
+                    "4) Ranch\n" +
+                    "5) Thousand Islands\n" +
+                    "6) Vinaigrette\n" +
+                    "Select a Side Sauce (1-6):");
+            int choice = scanner.nextInt();
+
+            switch (choice){
+                case 1: selectedSideSauce ="Mayo";
+                    break;
+                case 2: selectedSideSauce = "Mustard";
+                    break;
+                case 3: selectedSideSauce = "Ketchup";
+                    break;
+                case 4: selectedSideSauce = "Ranch";
+                    break;
+                case 5: selectedSideSauce = "Thousand Islands";
+                    break;
+                case 6: selectedSideSauce = "Vinaigrette";
+                    break;
+                case 7: choosingSideSauce = false;
+                    break;
+                default:
+                    System.out.println("Invalid Choice Try Again.");
+            }
+        }
+
+       // SideSauce sideSauce = new SideSauce(selectedSideSauce);
+        //figure out how to activate boolean when selected
+
+        System.out.println("Ight bet, adding side sauce!");
+        //OrderScreen();
+        return sideSauce;
     }
 
     private void CheckOut() {
@@ -289,9 +585,10 @@ public class UserInterface {
 
     private void Exit() {
 
-        System.out.println("Bye BRUH ✌️");
+        System.out.println("Bye BRUH ✌🏾");
 
     }
+
 }
 
 

@@ -72,6 +72,8 @@ public class Sandwich implements OrderItem {
             sandwichPrice = 7.00;
         } else if (sandwichSize.equalsIgnoreCase("12")) {
             sandwichPrice = 8.50;
+        }else {
+            //System.out.println("Piece a size any size");
         }
     }
 
@@ -82,11 +84,14 @@ public class Sandwich implements OrderItem {
 
     @Override
     public String itemDescirption() {
-        return "Sandwich";
+        return "Sandwich:\n" +
+                ""+ breadType + " " + sandwichSize + "\n" +
+                "-Toppings-\n" + "Meat";//<--Work in Progress
     }
 
     @Override
     public double itemTotalCost() {
+       //create if statement chain for sandwichCost
       //return = sandwichCost
         return 0;
     }

@@ -23,7 +23,7 @@ public class SandwichShop {
     }
 
     public void setShopName(String shopName) {
-        this.shopName = shopName;
+        this.shopName = "BRUHways Sandwich Shop";
     }
     //Shop Address
     public String getShopAddress() {
@@ -31,7 +31,7 @@ public class SandwichShop {
     }
 
     public void setShopAddress(String shopAddress) {
-        this.shopAddress = shopAddress;
+        this.shopAddress = "1800 Sandwich Way, Adell, WI, 53001";
     }
     //Shop Phone Number
     public String getShopPhoneNumber() {
@@ -39,7 +39,7 @@ public class SandwichShop {
     }
 
     public void setShopPhoneNumber(String shopPhoneNumber) {
-        this.shopPhoneNumber = shopPhoneNumber;
+        this.shopPhoneNumber = "1(800)BRUHway aka 1(800)278-4929";
     }
     //Shop Slogan
     public String getShopSlogan() {
@@ -47,6 +47,6 @@ public class SandwichShop {
     }
 
     public void setShopSlogan(String shopSlogan) {
-        this.shopSlogan = shopSlogan;
+        this.shopSlogan = "Welcome to BRUHways were we do it the BRUH ways";
     }
 }
