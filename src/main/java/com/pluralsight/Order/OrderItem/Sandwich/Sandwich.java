@@ -1,17 +1,21 @@
 package com.pluralsight.Order.OrderItem.Sandwich;
 
-public class Sandwich {
+import com.pluralsight.Order.OrderItem.OrderItem;
+
+public class Sandwich implements OrderItem {
 //Gotta add Toppings to this
     private String sandwichSize;
     private String breadType;
+    private String toppings;
     private boolean toasted;
-    private double sandwichPrice;
+    private double sandwichPrice; //Might have to remove
 
     //Constructor
 
-    public Sandwich(String sandwichSize, String breadType, boolean toasted, double sandwichPrice) {
+    public Sandwich(String sandwichSize, String breadType,String toppings, boolean toasted, double sandwichPrice) {
         this.sandwichSize = sandwichSize;
         this.breadType = breadType;
+        this.toppings = toppings;
         this.toasted = toasted;
         this.sandwichPrice = sandwichPrice;
     }
@@ -33,6 +37,14 @@ public class Sandwich {
     public void setBreadType(String breadType) {
         this.breadType = breadType;
     }
+    //Toppings
+    public String getToppings() {
+        return toppings;
+    }
+
+    public void setToppings(String toppings) {
+        this.toppings = toppings;
+    }
     //Toasted
     public boolean isToasted() {
         return toasted;
@@ -50,7 +62,7 @@ public class Sandwich {
         this.sandwichPrice = sandwichPrice;
     }
 
-    Sandwich sandwich = new Sandwich(sandwichSize,breadType,toasted,sandwichPrice);
+    Sandwich sandwich = new Sandwich(sandwichSize,breadType,toppings,toasted,sandwichPrice);
 
     private void sandwichSize(){
 
@@ -61,5 +73,21 @@ public class Sandwich {
         } else if (sandwichSize.equalsIgnoreCase("12")) {
             sandwichPrice = 8.50;
         }
+    }
+
+    @Override
+    public String itemType() {
+        return "Sandwich";
+    }
+
+    @Override
+    public String itemDescirption() {
+        return "Sandwich";
+    }
+
+    @Override
+    public double itemTotalCost() {
+      //return = sandwichCost
+        return 0;
     }
 }

@@ -6,4 +6,6 @@ public class Receipt {
     private String orderName;
     private String order;
     private String orderTotal;
+
+    //Shop I create a builder string to create a receipt
 }

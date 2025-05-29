@@ -1,8 +1,8 @@
 package com.pluralsight.Order.OrderItem;
 
-public class OrderItem {
+public interface OrderItem {
 
-    private String itemType;
-    private String itemDescirption;
-    private double itemTotalCost;
+    String itemType();
+    String itemDescirption();
+    double itemTotalCost();
 }
