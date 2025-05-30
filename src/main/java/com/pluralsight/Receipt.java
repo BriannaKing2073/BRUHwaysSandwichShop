@@ -73,5 +73,8 @@ public class Receipt {
 
     public void print() {
     }
+
+    public void saveToFile() {
+    }
 }
 

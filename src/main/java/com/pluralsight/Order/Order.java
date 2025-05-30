@@ -1,6 +1,9 @@
 package com.pluralsight.Order;
 
+import com.pluralsight.Order.OrderItem.Chips;
+import com.pluralsight.Order.OrderItem.Drink;
 import com.pluralsight.Order.OrderItem.OrderItem;
+import com.pluralsight.Order.OrderItem.Sandwich.Sandwich;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +17,15 @@ public class Order {
 
         orderItems.add(item);
 
+    }
+
+    public List<Sandwich> getSandwiches() {
+    }
+
+    public List<Drink> getDrinks() {
+    }
+
+    public List<Chips> getChips() {
     }
 }
 
