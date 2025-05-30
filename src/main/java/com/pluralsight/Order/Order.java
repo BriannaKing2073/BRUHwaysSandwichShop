@@ -19,13 +19,6 @@ public class Order {
 
     }
 
-    public List<Sandwich> getSandwiches() {
-    }
 
-    public List<Drink> getDrinks() {
-    }
-
-    public List<Chips> getChips() {
-    }
 }
 

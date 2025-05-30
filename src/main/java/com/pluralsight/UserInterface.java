@@ -622,7 +622,7 @@ public class UserInterface {
         return sideSauce;
     }
 
-    private void CheckOut() {
+    private CheckOut CheckOut() {
 
     }
 
