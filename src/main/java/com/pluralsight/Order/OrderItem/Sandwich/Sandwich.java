@@ -76,17 +76,18 @@ public class Sandwich implements OrderItem {
         //loop through all toppings, ask topping for it's price, add that to the total sandwich price
         //for(Topping t : this.toppings){
 
-
-        }
-
-//        if (sandwichSize.equalsIgnoreCase("4")){
-//            sandwichPrice = 5.50;
-//        } else if (sandwichSize.equalsIgnoreCase("8")) {
-//            sandwichPrice = 7.00;
-//        } else if (sandwichSize.equalsIgnoreCase("12")) {
-//            sandwichPrice = 8.50;
-//        }else {
-//            //System.out.println("Piece a size any size");
+//       public double calculateSandwichPrice(double basePrice, List<Topping> toppings) {
+//            double totalPrice = basePrice;
+//
+//            for (Topping t : toppings) {
+//                totalPrice += t.getPrice();
+//            }
+//
+//            return totalPrice;
 //        }
-    }
+//
+//        }
+//
+ }
+}
 

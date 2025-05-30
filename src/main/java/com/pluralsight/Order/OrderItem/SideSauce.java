@@ -21,14 +21,7 @@ public class SideSauce implements OrderItem{
     public void setSauceName(String sauceName) {
         this.sauceName = sauceName;
     }
-//    //Is Side?
-//    public boolean isSide() {
-//        return isSide;
-//    }
-//
-//    public void setSide(boolean side) {
-//        isSide = side;
-//    }
+
 
     @Override
     public String itemType() {
